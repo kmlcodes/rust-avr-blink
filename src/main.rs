@@ -1,20 +1,16 @@
 #![no_std]
 #![no_main]
-
-use ruduino::Pin;
-use ruduino::cores::current::{port};
+use ruduino::cores::current::port;
+use ruduino::{delay::delay_ms, Pin};
 
 #[no_mangle]
-pub extern fn main() {
-    port::B5::set_output();
-
+pub extern "C" fn main() {
+    let led_pin = port::B5; // use pin 13 as led pin
+    led_pin::set_output(); // set pin as output
     loop {
-        port::B5::set_high();
-
-        ruduino::delay::delay_ms(1000);
-
-        port::B5::set_low();
-
-        ruduino::delay::delay_ms(1000);
+        led_pin::set_high(); //turn on
+        ruduino::delay::delay_ms(1000); // delay for 1 second
+        led_pin::set_low(); //turn off
+        ruduino::delay::delay_ms(1000); // delay for 1 second
     }
 }
