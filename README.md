@@ -1,4 +1,4 @@
-# blink
+# Rust AVR blink
 
 A small Hello World Rust application for the AVR.
 
