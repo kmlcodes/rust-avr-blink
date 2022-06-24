@@ -9,8 +9,8 @@ pub extern "C" fn main() {
     led_pin::set_output(); // set pin as output
     loop {
         led_pin::set_high(); //turn on
-        ruduino::delay::delay_ms(1000); // delay for 1 second
+        delay_ms(1000); // delay for 1 second
         led_pin::set_low(); //turn off
-        ruduino::delay::delay_ms(1000); // delay for 1 second
+        delay_ms(1000); // delay for 1 second
     }
 }
